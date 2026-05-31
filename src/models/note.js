@@ -10,6 +10,7 @@ const noteSchema = new Schema(
         content:{
             type:String,
             trim: true,
+            default: "",
         },
         tag:{
             type: String,
@@ -23,4 +24,4 @@ const noteSchema = new Schema(
     }
 );
 
-export const Notes = model('Notes', noteSchema);
+export const Note = model('Notes', noteSchema);
