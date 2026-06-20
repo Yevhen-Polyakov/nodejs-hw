@@ -9,6 +9,8 @@ import notesRoutes from './routes/notesRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
+import userRoutes from './routes/authRoutes.js';
+
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
@@ -20,6 +22,7 @@ app.use(cors());
 app.use(cookieParser());
 
 app.use(authRoutes);
+app.use(userRoutes);
 
 app.use(notesRoutes);
 
