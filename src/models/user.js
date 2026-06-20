@@ -5,9 +5,9 @@ const userSchema = new Schema({
     username: {type: String, trim: true,},
     email: { type: String, required: true, unique: true, trim: true },
     password: {type: String, required: true,},
+    avatar: { type: String, required: false, default: "https://ac.goit.global/fullstack/react/default-avatar.jpg"}
 },
-
-    {timestamps: true},
+ {timestamps: true},
 );
 
 userSchema.pre('save', function() {
@@ -16,7 +16,7 @@ userSchema.pre('save', function() {
     }
 });
 
-userSchema.method.toJSON = function(){
+userSchema.methods.toJSON = function(){
     const obj = this.toObject();
     delete obj.password;
     return obj;
